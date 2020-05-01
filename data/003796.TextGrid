@@ -1,0 +1,126 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 5.825 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "003796.interval" 
+        xmin = 0 
+        xmax = 5.825 
+        intervals: size = 28 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.35024757813138324 
+            text = "" 
+        intervals [2]:
+            xmin = 0.35024757813138324 
+            xmax = 0.565296516466019 
+            text = "yu" 
+        intervals [3]:
+            xmin = 0.565296516466019 
+            xmax = 0.8060655936047972 
+            text = "yuan" 
+        intervals [4]:
+            xmin = 0.8060655936047972 
+            xmax = 1.0206955595758247 
+            text = "jing" 
+        intervals [5]:
+            xmin = 1.0206955595758247 
+            xmax = 1.2164543938073535 
+            text = "se" 
+        intervals [6]:
+            xmin = 1.2164543938073535 
+            xmax = 1.395066468836121 
+            text = "hen" 
+        intervals [7]:
+            xmin = 1.395066468836121 
+            xmax = 1.7482994061669768 
+            text = "mei" 
+        intervals [8]:
+            xmin = 1.7482994061669768 
+            xmax = 1.9147658600937878 
+            text = "" 
+        intervals [9]:
+            xmin = 1.9147658600937878 
+            xmax = 2.0951023058842972 
+            text = "shi" 
+        intervals [10]:
+            xmin = 2.0951023058842972 
+            xmax = 2.280858863914215 
+            text = "shang" 
+        intervals [11]:
+            xmin = 2.280858863914215 
+            xmax = 2.465186525343903 
+            text = "hai" 
+        intervals [12]:
+            xmin = 2.465186525343903 
+            xmax = 2.6262328670313058 
+            text = "shi" 
+        intervals [13]:
+            xmin = 2.6262328670313058 
+            xmax = 2.887006496573306 
+            text = "qu" 
+        intervals [14]:
+            xmin = 2.887006496573306 
+            xmax = 3.020608328694824 
+            text = "" 
+        intervals [15]:
+            xmin = 3.020608328694824 
+            xmax = 3.173669497317007 
+            text = "wei" 
+        intervals [16]:
+            xmin = 3.173669497317007 
+            xmax = 3.3329914682426676 
+            text = "yi" 
+        intervals [17]:
+            xmin = 3.3329914682426676 
+            xmax = 3.52 
+            text = "liu" 
+        intervals [18]:
+            xmin = 3.52 
+            xmax = 3.7119445443776655 
+            text = "cun" 
+        intervals [19]:
+            xmin = 3.7119445443776655 
+            xmax = 3.9069889303090797 
+            text = "wan" 
+        intervals [20]:
+            xmin = 3.9069889303090797 
+            xmax = 4.098461074739918 
+            text = "hao" 
+        intervals [21]:
+            xmin = 4.098461074739918 
+            xmax = 4.239502864024098 
+            text = "de" 
+        intervals [22]:
+            xmin = 4.239502864024098 
+            xmax = 4.438833939756202 
+            text = "jiang" 
+        intervals [23]:
+            xmin = 4.438833939756202 
+            xmax = 4.6660284991927945 
+            text = "nan" 
+        intervals [24]:
+            xmin = 4.6660284991927945 
+            xmax = 4.8020691503761705 
+            text = "gu" 
+        intervals [25]:
+            xmin = 4.8020691503761705 
+            xmax = 4.972107845803556 
+            text = "dian" 
+        intervals [26]:
+            xmin = 4.972107845803556 
+            xmax = 5.155006610633015 
+            text = "yuan" 
+        intervals [27]:
+            xmin = 5.155006610633015 
+            xmax = 5.499652043075645 
+            text = "lin" 
+        intervals [28]:
+            xmin = 5.499652043075645 
+            xmax = 5.825 
+            text = "" 
