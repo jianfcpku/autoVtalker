@@ -1,17 +1,30 @@
 import numpy as np
 
-base_note = 63
+base_note = 68
 base_freq = 440*2**((base_note-81)/12)
 pbs = 12
-N_hanning = 40
+N_hanning = 20
+bias = 0
 max_freq = base_freq * 2**(pbs/12)
 min_freq = base_freq * 2**(-pbs/12)
 dots_per_beat = 480
 tempo = 6000
-tot_time = 10000 # ms
-tot_dots = int(tot_time * 6.0 / tempo *dots_per_beat)
 ms_per_dot = 6000000 / tempo / dots_per_beat
-head_const = '''<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+tail_const = '''        </vsPart>
+	</vsTrack>
+	<monoTrack>
+	</monoTrack>
+	<stTrack>
+	</stTrack>
+	<aux>
+		<id><![CDATA[AUX_VST_HOST_CHUNK_INFO]]></id>
+		<content><![CDATA[VlNDSwAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></content>
+	</aux>
+</vsq4>
+'''
+def write_head(file, tot_time = 10000):
+    tot_dots = int(tot_time * 6.0 / tempo *dots_per_beat)
+    head_const = '''<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <vsq4 xmlns="http://www.yamaha.co.jp/vocaloid/schema/vsq4/"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.yamaha.co.jp/vocaloid/schema/vsq4/ vsq4.xsd">
@@ -101,20 +114,6 @@ head_const = '''<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 				<pc>0</pc>
 			</singer>
 '''
-
-tail_const = '''        </vsPart>
-	</vsTrack>
-	<monoTrack>
-	</monoTrack>
-	<stTrack>
-	</stTrack>
-	<aux>
-		<id><![CDATA[AUX_VST_HOST_CHUNK_INFO]]></id>
-		<content><![CDATA[VlNDSwAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></content>
-	</aux>
-</vsq4>
-'''
-def write_head(file):
     file.write(head_const)
 
 def write_tail(file):
@@ -150,8 +149,8 @@ def write_note(file, infile):
         line = infile.readline()
         if not line:
             break
-        xmin = int(float(infile.readline().split()[-1]) *1000/ ms_per_dot + 0.5) + N_hanning - 1 + dots_per_beat
-        xmax = int(float(infile.readline().split()[-1]) *1000/ ms_per_dot + 0.5) + N_hanning - 1 + dots_per_beat
+        xmin = int(float(infile.readline().split()[-1]) *1000/ ms_per_dot + 0.5) + N_hanning - 1 + dots_per_beat + bias
+        xmax = int(float(infile.readline().split()[-1]) *1000/ ms_per_dot + 0.5) + N_hanning - 1 + dots_per_beat + bias
         note = infile.readline().split()[-1][1:-1]
         dur = xmax - xmin
         if not note:
