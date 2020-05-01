@@ -1,12 +1,14 @@
 import numpy as np
 
-base_note = 68
+base_note = 68 # default
 base_freq = 440*2**((base_note-81)/12)
 pbs = 12
-N_hanning = 20
-bias = 0
 max_freq = base_freq * 2**(pbs/12)
 min_freq = base_freq * 2**(-pbs/12)
+
+N_hanning = 20
+bias = 0
+
 dots_per_beat = 480
 tempo = 6000
 ms_per_dot = 6000000 / tempo / dots_per_beat
@@ -122,6 +124,16 @@ def write_tail(file):
 def write_pit(file, f0, t):
     file.write('\t\t\t<cc><t>1</t><v id="S">'+str(pbs)+'</v></cc>\n')
     f0 = np.log2((f0+0.001) / 440.0) * 12 + 81
+
+    _ = []
+    for i in f0:
+        if i > 0:
+            _.append(i)
+    base_note = int(np.array(_).mean()+0.5)
+    base_freq = 440*2**((base_note-81)/12)
+    max_freq = base_freq * 2**(pbs/12)
+    min_freq = base_freq * 2**(-pbs/12)
+
     t = t * 1000
     t = t / ms_per_dot + dots_per_beat
     for i in range(len(t)):
@@ -138,6 +150,7 @@ def write_pit(file, f0, t):
 
     hn_weights = np.hanning(N_hanning)
     f0_s = np.convolve(hn_weights/hn_weights.sum(),f0)[N_hanning-1:-N_hanning+1]
+
     t = t[N_hanning - 1:]
     for i in range(len(t)):
         file.write('\t\t\t<cc><t>'+str(int(t[i]))+'</t><v id="P">'+str(int(f0_s[i]+0.5))+'</v></cc>\n')
